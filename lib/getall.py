@@ -10,6 +10,6 @@ liste2=[]
 for x in liste:
   soup = BS(requests.get(x).text)
   for y in soup.find(attrs={"name":"U"}).children:
-    soup2 = BS(requests.get(x + "&U=" y.get(value)).text)
-    for z in soup.find(attrs={"name":"T"}).children:
-      liste2=(y + "&T=" z.get(value))
+    soup2 = BS(requests.get(x + "&U=" + y.get(value)).text)
+#    for z in soup.find(attrs={"name":"T"}).children:
+#      liste2=(y + "&T=" + z.get(value))
