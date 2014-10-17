@@ -16,11 +16,11 @@ for x in liste:
     soup2 = BS(requests.get(x + "&U=" + y.get("value")).text)
     res = soup2.find(attrs={"name":"T"})
     if not res:
-        print "Warning, did not find any tables for:" + x + "&U=" + y.get("value")
+        print("Warning, did not find any tables for:" + x + "&U=" + y.get("value"))
         continue
     for z in res.children:
-      if z == u"\n":
+      if z == u"\n" or not z.get("value"):
         continue
       liste2.append(x + "&U=" + y.get("value") + "&T=" + z.get("value"))
 
-print liste2
+print(liste2)
